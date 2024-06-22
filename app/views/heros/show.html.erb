@@ -12,20 +12,21 @@
         <% end %>
       </div>
     </div>
-    <div class="hero-details">
-      <h2> <%= @hero.name %></h2>
-      <p class="guild">Guild: <%= @hero.guild %></p>
-      <p class="role">Role: <%= @hero.role %></p>
-      <p class="category">Job : <%= @hero.job %></p>
-      <p class="description">Description : <%= @hero.description %></p>
-      <p class="price"><%= number_to_currency(@hero.price, unit: "Zeny", format: "%n %u / day") %></p>
-          <% if %>
-            <% @hero.user == current_user %>
+    <div class="hero-details justify-content-center">
+      <h2 class="text-center"> <%= @hero.name %></h2>
+      <div class="mx-5">
+        <p class="guild"><strong>Guild:</strong> <%= @hero.guild %></p>
+        <p class="role"><strong>Role:</strong> <%= @hero.role %></p>
+        <p class="category"><strong>Job:</strong> <%= @hero.job %></p>
+        <p class="description"><strong>Description :</strong> <%= @hero.description %></p>
+        <p class="price"><strong><%= number_to_currency(@hero.price, unit: "Zeny", format: "%n %u / day") %></strong></p>
+          <% if @hero.user == current_user %>
             <%= link_to "Mettre à jour", edit_hero_path, class: "btn btn-primary valid-button" %>
             <%= link_to "Supprimer", hero_path(@hero), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sur(e)s"} %>
           <% else %>
             <%= link_to "Réserver", new_hero_reservation_path(@hero), class: "btn btn-primary valid-button" %>
           <% end %>
+      </div>
     </div>
   </div>
 </div>
