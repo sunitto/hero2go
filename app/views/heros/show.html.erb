@@ -1,6 +1,10 @@
 <div class="hero-file-container">
   <div class="element position-relative" style="top: 0px">
-    <%= link_to('<i class="fa-solid fa-arrow-left back-arrow"></i>'.html_safe, "/heros".html_safe) %>
+    <% if request.referrer.present? && request.referrer.include?("my_heros") %>
+      <%= link_to('<i class="fa-solid fa-arrow-left back-arrow"></i>'.html_safe, "/my_heros".html_safe) %>
+    <% else %>
+      <%= link_to('<i class="fa-solid fa-arrow-left back-arrow"></i>'.html_safe, "/heros".html_safe) %>
+    <% end %>
   </div>
   <div class="d-flex flex-row mx-5">
     <div class="hero-file-card">
@@ -21,10 +25,10 @@
         <p class="description"><strong>Description :</strong> <%= @hero.description %></p>
         <p class="price"><strong><%= number_to_currency(@hero.price, unit: "Zeny", format: "%n %u / day") %></strong></p>
           <% if @hero.user == current_user %>
-            <%= link_to "Mettre à jour", edit_hero_path, class: "btn btn-primary valid-button" %>
-            <%= link_to "Supprimer", hero_path(@hero), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sur(e)s"} %>
+            <%= link_to "Update", edit_hero_path, class: "btn btn-primary valid-button" %>
+            <%= link_to "Delete", hero_path(@hero), data: {turbo_method: :delete, turbo_confirm: "Are you sure???"} %>
           <% else %>
-            <%= link_to "Réserver", new_hero_reservation_path(@hero), class: "btn btn-primary valid-button" %>
+            <%= link_to "Hire", new_hero_reservation_path(@hero), class: "btn btn-primary valid-button" %>
           <% end %>
       </div>
     </div>

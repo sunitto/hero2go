@@ -1,0 +1,18 @@
+<div class="row justify-content-center">
+<div class="col-4">
+  <h1 class="my-4 text-center">Add a new hero or heroin</h1>
+    <%= simple_form_for(@hero) do |f| %>
+      <div class="mb-3"><%= f.input :name, label: "Name" %></div>
+      <div class="mb-3" ><%= f.input :role, collection: ["Support", "Tank", "Physical", "Magical"], label: "Role", selected: @hero.role %></div>
+      <div class="mb-3"><%= f.input :picture, as: :file, label: "Add a portrait" %></div>
+      <div class="mb-3"><%= f.input :job, label: "Job" %></div>
+      <div class="mb-3"><%= f.input :guild, label: "Guild" %></div>
+      <div class="mb-3"><%= f.input :description, label: "About the hero" %></div>
+      <div class="mb-3"><%= f.input :price, label: "Price" %></div>
+      <div class="text-center"><%= f.button :submit, "Update", class: "btn btn-primary" %></div>
+    <% end %>
+       <div class="text-center mt-3">
+    <%= link_to "Back", my_heros_path, class: "btn btn-secondary"%>
+    </div>
+  </div>
+</div>

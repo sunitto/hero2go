@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to heros_path, class: "navbar-brand" do %>
       <%= image_tag "logo.jpg" %>
     <% end %>
 
@@ -15,7 +15,7 @@
             <%= link_to "Home", heros_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "My heroes", "#", class: "nav-link" %>
+            <%= link_to "My heroes", my_heros_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

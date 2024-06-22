@@ -3,7 +3,7 @@
 </div>
 
 <div class="row mx-5">
-  <% @heros.each do |hero| %>
-    <%= render partial: 'heros_listing', locals: { hero: hero } unless hero.user == current_user %>
+  <% @my_heros.each do |hero| %>
+    <%= render partial: 'heros_listing', locals: { hero: hero } %>
   <% end %>
 </div>

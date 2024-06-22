@@ -1,0 +1,25 @@
+      <div class="col-lg-3 col-md-3 col-sm-6 mb-3">
+        <div class="heros-card shadow bg-white text-dark h-100">
+          <div class="image-container">
+            <% if hero.picture.key.nil? %>
+              <%= image_tag "logo.jpg", class: 'card-img-top' %>
+            <% else %>
+              <%= image_tag rails_blob_url(hero.picture), alt: "Heros", class: 'card-img-top img-fluid rounded' %>
+            <% end %>
+          </div>
+          <div class="card-body mt-2">
+            <h5 class="card-title">Name: <%= hero.name %></h5>
+            <h6 class="card-heros-cat text-muted">Guild: <%= hero.guild %></h6>
+            <div class="card-footer">
+              <div class= "mb-3">
+                <%= link_to "details", hero_path(hero), class: 'btn btn-info text-white detail-button' %>
+              </div>
+              <p class="card-text"><strong>Price: <%= hero.price %> Zeny / day</strong></p>
+              <div class="blockquote-footer">
+                <p>Role: <%= hero.role %></p>
+                <p>Job: <%= hero.job %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

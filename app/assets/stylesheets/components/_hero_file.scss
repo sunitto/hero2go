@@ -1,22 +1,20 @@
 .hero-file-container{
   padding:10px;
   margin:10px;
-
-}
-
-.hero-file-card {
-
-}
-
-
-.image-file-container{
-  width:100%;
+  display:flex;
   overflow:hidden;
 
 }
 
+.image-file-container{
+  width:100%;
+  overflow:hidden;
+  object-fit: cover;
+
+}
 
 .image-file-hero{
 overflow: hidden;
 width: 50rem;
+object-fit: cover;
 }
