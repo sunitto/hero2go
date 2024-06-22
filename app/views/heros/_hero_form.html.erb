@@ -1,0 +1,7 @@
+ <div class="mb-3"><%= f.input :name, label: "Name" %></div>
+      <div class="mb-3" ><%= f.input :role, collection: ["Support", "Tank", "Physical", "Magical"], label: "Role", selected: @hero.role %></div>
+      <div class="mb-3"><%= f.input :picture, as: :file, label: "Add a portrait" %></div>
+      <div class="mb-3"><%= f.input :job, label: "Job" %></div>
+      <div class="mb-3"><%= f.input :guild, label: "Guild" %></div>
+      <div class="mb-3"><%= f.input :description, label: "About the hero" %></div>
+      <div class="mb-3"><%= f.input :price, label: "Price" %></div>

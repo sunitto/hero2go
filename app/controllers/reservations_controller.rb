@@ -15,15 +15,14 @@ class ReservationsController < ApplicationController
     @reservation.hero = @hero
     @reservation.user = current_user
     if @reservation.save
-      raise
-      redirect_to @reservation, notice: "We will process the hiring"
+      redirect_to heros_path
     else
       render :new
     end
+  end
 
-    def show
-      @reservation = Reservation.find(params[:id])
-    end
+  def show
+    @reservation = Reservation.find(params[:id])
   end
 
   private
