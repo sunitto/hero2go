@@ -1,0 +1,10 @@
+<h1>Reservations for <%= @hero.name %></h1>
+
+<ul>
+  <% @reservations.each do |reservation| %>
+    <li><%= reservation.name %> - <%= reservation.date %></li>
+    <!-- Affichez d'autres détails de réservation selon vos besoins -->
+  <% end %>
+</ul>
+
+<%= link_to "Hire again", new_hero_reservation_path(@hero), class: "btn btn-primary" %>

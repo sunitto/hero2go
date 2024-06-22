@@ -1,0 +1,12 @@
+<%= simple_form_for [@hero, @reservation] do |f| %>
+  <%= f.input :start_date,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :end_date,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+  <%= link_to hero_reservations_path(@hero) do %>
+    <%= f.submit "Confirm the contract" %>
+  <% end %>
+  <%= "The hero manager will be notified. Until then please wait for confirmation" %>
+<% end %>
