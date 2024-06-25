@@ -1,5 +1,6 @@
 class HerosController < ApplicationController
   before_action :set_hero, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :update]
 
   def index
     @heros = Hero.all
@@ -10,10 +11,12 @@ class HerosController < ApplicationController
   end
 
   def show
+    @reservation = Reservation.new
   end
 
   def new
     @hero = Hero.new
+    @hero.user = current_user
   end
 
   def create
@@ -21,6 +24,8 @@ class HerosController < ApplicationController
     @hero.user = current_user
     if @hero.save
       redirect_to my_heros_path
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 

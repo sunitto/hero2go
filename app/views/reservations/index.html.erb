@@ -2,7 +2,9 @@
 
 <ul>
   <% @reservations.each do |reservation| %>
-    <li><%= reservation.name %> - <%= reservation.date %></li>
+    <li><%= reservation.hero.name %> - from <%= reservation.start_date %> to <%= reservation.end_date %></li>
+    <li>for a total of <%= reservation.total_pricce %></li>
+    <li>validation is <%= reservation.status %></li>
     <!-- Affichez d'autres détails de réservation selon vos besoins -->
   <% end %>
 </ul>

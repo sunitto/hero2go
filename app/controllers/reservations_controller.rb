@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
     @reservation.hero = @hero
     @reservation.user = current_user
     if @reservation.save
-      redirect_to heros_path
+      redirect_to hero_reservations_path
     else
       render :new
     end
@@ -32,6 +32,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date)
+    params.require(:reservation).permit(:start_date, :end_date, :total_days, :total_price, :status)
   end
 end
