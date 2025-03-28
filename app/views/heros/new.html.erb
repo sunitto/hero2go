@@ -1,12 +1,12 @@
 <div class="row justify-content-center">
-<div class="col-4">
-  <h1 class="my-4 text-center">Add a new hero or heroin</h1>
-    <%= simple_form_for(@hero) do |f| %>
-      <%= render partial: "hero_form", locals: { f: f } %>
-      <div class="text-center"><%= f.button :submit, "Publish", class: "btn btn-primary" %></div>
-    <% end %>
-       <div class="text-center mt-3">
-    <%= link_to "Back", my_heros_path, class: "btn btn-secondary"%>
-    </div>
+  <div class="col-4">
+    <h1 class="my-4 text-center">Add a new hero or heroin</h1>
+      <%= simple_form_for(@hero) do |f| %>
+        <%= render partial: "hero_form", locals: { f: f } %>
+        <div class="text-center"><%= f.button :submit, "Publish", class: "btn btn-primary" %></div>
+      <% end %>
+        <div class="text-center mt-3">
+         <%= link_to "Back", my_heros_path, class: "btn btn-secondary"%>
+        </div>
   </div>
 </div>

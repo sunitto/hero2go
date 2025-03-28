@@ -1,22 +1,27 @@
-<%= simple_form_for [@hero, @reservation] do |f| %>
-  <%= f.input :start_date,
-              as: :string,
-              input_html: { data: { controller: "datepicker" } } %>
-  <%= f.input :end_date,
-              as: :string,
-              input_html: { data: { controller: "datepicker" } } %>
-  <div class="form-group">
-    <%= f.label :total_days, "Nombre de jours" %>
-    <%= f.number_field :total_days, class: 'form-control', readonly: true %>
-  </div>
+<div class="row justify-content-center">
+<div class="col-4">
+  <h1 class="my-4 text-center">Set your reservation</h1>
+  <%= simple_form_for [@hero, @reservation] do |f| %>
+    <%= f.input :start_date,
+                as: :string,
+                input_html: { data: { controller: "datepicker", "datepicker-target": "startDate" } } %>
+    <%= f.input :end_date,
+                as: :string,
+                input_html: { data: { controller: "datepicker", "datepicker-target": "endDate" } } %>
+    <div class="form-group days-input">
+      <%= f.label :total_days, "Nombre de jours" %>
+      <%= f.number_field :total_days, class: 'form-control', readonly: true %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :total_price, "Prix total" %>
-    <%= f.number_field :total_price, class: 'form-control', readonly: true %>
-  </div>
+    <div class="form-group price-input">
+      <%= f.label :total_price, "Prix total" %>
+      <%= f.number_field :total_price, class: 'form-control', readonly: true %>
+    </div>
 
-  <%= link_to hero_reservations_path(@hero) do %>
-    <%= f.submit "Confirm the contract" %>
+    <%= link_to hero_reservations_path(@hero) do %>
+      <%= f.submit "Confirm the contract" %>
+    <% end %>
+    <%= "The hero manager will be notified. Until then please wait for confirmation" %>
   <% end %>
-  <%= "The hero manager will be notified. Until then please wait for confirmation" %>
-<% end %>
+  </div>
+</div>
